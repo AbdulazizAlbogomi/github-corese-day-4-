@@ -14,7 +14,7 @@ jobs:
         run: |
             export body=$(curl ifconfig.co/json)
             export ip=$(echo $body | jq '.ip')
-            epoort country=$(echo $body | jq '.country')
+            export country=$(echo $body | jq '.country')
             gh pr comment $PR_NUMBER --body "this was run from addreas: $ip located at $country" --repo $GITHUB_REPOSITORY
 
         
